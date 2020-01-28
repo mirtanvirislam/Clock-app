@@ -1,29 +1,29 @@
 <html>
 	<head>
 		<script>
-			document.getElementById('clock').onload = displayClock();
-
 			function displayClock() {
 				var today = new Date();
-				var h = today.getHours();
-				var m = today.getMinutes();
-				var s = today.getSeconds();
-				m = checkTime(m);
-				s = checkTime(s);
-				document.getElementById('txt').innerHTML =
-					h + ':' + m + ':' + s;
-				var t = setTimeout(startTime, 500);
+				var hour_in_24hr = today.getHours();
+				var hour_in_12hr = hour_in_24hr % 12;
+				var minute = today.getMinutes();
+				var second = today.getSeconds();
+				var am_pm = hour_in_24hr > 11 ? 'pm' : 'am';
+				minute = checkTime(minute);
+				second = checkTime(second);
+				document.getElementById('clock').innerHTML =
+					hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
+				var t = setTimeout(displayClock, 500);
 			}
-			function checkTime(i) {
-				if (i < 10) {
-					i = '0' + i;
+			function checkTime(input) {
+				if (input < 10) {
+					input = '0' + input;
 				} // add zero in front of numbers < 10
-				return i;
+				return input;
 			}
 		</script>
 	</head>
 
-	<body>
+	<body onload="displayClock()">
 		<h3>Clock App</h3>
 		<h1 id="clock">HH:MM:SS</h1>
 	</body>
