@@ -35,15 +35,42 @@
 				} // add zero in front of numbers < 10
 				return input;
 			}
+
+			/* Get the element you want displayed in fullscreen mode (a video in this example): */
+
+			/* When the openFullscreen() function is executed, open the video in fullscreen.
+                Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+			function openFullscreen() {
+				var elem = document.getElementById('body');
+
+				if (elem.requestFullscreen) {
+					elem.requestFullscreen();
+				} else if (elem.mozRequestFullScreen) {
+					/* Firefox */
+					elem.mozRequestFullScreen();
+				} else if (elem.webkitRequestFullscreen) {
+					/* Chrome, Safari and Opera */
+					elem.webkitRequestFullscreen();
+				} else if (elem.msRequestFullscreen) {
+					/* IE/Edge */
+					elem.msRequestFullscreen();
+				}
+			}
 		</script>
 	</head>
 
-	<body onload="displayClock()" class="p-3">
+	<body onload="displayClock()" class="p-3" id="body">
 		<h3>Clock App</h3>
 		<h1 id="clock">HH:MM:SS</h1>
 
 		<div>
-			<button type="button" class="btn btn-primary">Primary</button>
+			<button
+				type="button"
+				class="btn btn-primary"
+				onclick="openFullscreen()"
+			>
+				Fullscreen
+			</button>
 
 			<!-- Button trigger modal -->
 			<button
@@ -52,8 +79,10 @@
 				data-toggle="modal"
 				data-target="#exampleModalCenter"
 			>
-				Launch demo modal
+				Timer
 			</button>
+
+			<button type="button" class="btn btn-secondary">Settings</button>
 
 			<!-- Modal -->
 			<div
