@@ -84,17 +84,79 @@
 				type="button"
 				class="btn btn-primary"
 				data-toggle="modal"
-				data-target="#exampleModalCenter"
+				data-target="#timerModal"
+			>
+				Timer
+			</button>
+
+			<!-- Button trigger modal -->
+			<button
+				type="button"
+				class="btn btn-primary"
+				data-toggle="modal"
+				data-target="#StopwatchModal"
 			>
 				Timer
 			</button>
 
 			<button type="button" class="btn btn-secondary">Settings</button>
 
+			<!-- Timer Modal -->
+			<div
+				class="modal fade"
+				id="timerModal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="exampleModalCenterTitle"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5
+								class="modal-title"
+								id="exampleModalCenterTitle"
+							>
+								Timer
+							</h5>
+							<button
+								type="button"
+								class="btn btn-outline-secondary minimize_timer"
+							>
+								_
+							</button>
+							<button
+								type="button"
+								class="btn btn-outline-danger"
+								data-dismiss="modal"
+								aria-label="Close"
+							>
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div id="timer">00:00:00</div>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-dismiss="modal"
+							>
+								Pause/ Play
+							</button>
+							<button type="button" class="btn btn-primary">
+								Start timer
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<!-- Modal -->
 			<div
 				class="modal fade"
-				id="exampleModalCenter"
+				id="StopwatchModal"
 				tabindex="-1"
 				role="dialog"
 				aria-labelledby="exampleModalCenterTitle"
