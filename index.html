@@ -165,11 +165,6 @@
 				}
 			};
 
-			function hidefullviews() {
-				alert('h');
-				document.getElementById('clock_fullscreen_div').style.display = 'none';
-				document.getElementById('timer_fullscreen_div').style.display = 'none';
-			}
 		</script>
 	</head>
 
@@ -178,7 +173,7 @@
 			<h3>Clock App</h3>
 			<h1 id="clock">HH:MM:SS</h1>
 
-			<button type="button" class="btn btn-primary" onclick="openFullscreen()">
+			<button type="button" class="btn btn-primary" onclick="fullscreen('clock_fullscreen_div')>
 				Fullscreen
 			</button>
 
@@ -203,14 +198,16 @@
 			<div id="clock_fullscreen_div">
 				<div class="row h-100 ">
 					<div class="col-sm-12 my-auto">
-						<div class="text-center fullscreen" id="clock_fullscreen">CF</div>
+						<div class="text-center fullscreen" id="clock_fullscreen"></div>
 					</div>
 				</div>
 			</div>
 
-			<div class="row h-100 " id="timer_fullscreen_div">
-				<div class="col-sm-12 my-auto">
-					<div class="text-center fullscreen" id="timer_fullscreen">TF</div>
+			<div id="timer_fullscreen_div">
+				<div class="row h-100 ">
+					<div class="col-sm-12 my-auto">
+						<div class="text-center fullscreen" id="timer_fullscreen"></div>
+					</div>
 				</div>
 			</div>
 		</div>
