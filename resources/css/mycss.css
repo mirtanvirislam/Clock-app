@@ -1,0 +1,31 @@
+body {
+	background-color: white;
+	color: black;
+}
+
+.fullscreen {
+	font: 'Monospac82 MT';
+	font-size: 280pt;
+	font-weight: bolder;
+}
+
+#clock_fullscreen_div {
+	display: none;
+}
+
+#timer_fullscreen_div {
+	display: none;
+}
+
+.modalscreen {
+	font-size: 50pt;
+}
+
+small {
+	font-size: 80pt;
+}
+
+#myauto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
