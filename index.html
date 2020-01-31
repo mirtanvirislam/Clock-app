@@ -1,5 +1,7 @@
 <html>
 	<head>
+		<title>Clock</title>
+
 		<!--Bootstrap CSS and JS-->
 		<link
 			rel="stylesheet"
@@ -32,8 +34,10 @@
 				var am_pm = hour_in_24hr > 11 ? 'pm' : 'am';
 				minute = checkTime(minute);
 				second = checkTime(second);
+				document.title = hour_in_12hr + ':' + minute + ' ' + am_pm;
 				document.getElementById('clock').innerHTML =
 					hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
+
 				var t = setTimeout(displayClock, 500);
 			}
 			function checkTime(input) {
@@ -46,7 +50,7 @@
 			/* Get the element you want displayed in fullscreen mode (a video in this example): */
 
 			/* When the openFullscreen() function is executed, open the video in fullscreen.
-                Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+			             Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
 			function openFullscreen() {
 				var elem = document.getElementById('StopwatchModal');
 
