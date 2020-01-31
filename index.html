@@ -15,7 +15,7 @@
 				color: black;
 			}
 
-			#timer_fullscreen {
+			.fullscreen {
 				font-size: 72pt;
 			}
 
@@ -38,6 +38,7 @@
 			var current_time;
 
 			function displayClock() {
+				document.getElementById('main').style.display = 'block';
 				var today = new Date();
 				var hour_in_24hr = today.getHours();
 				var hour_in_12hr = hour_in_24hr % 12;
@@ -200,21 +201,21 @@
 			<button type="button" class="btn btn-primary">Lo-fi</button>
 
 			<button type="button" class="btn btn-secondary">Settings</button>
+		</div>
 
-			<div>
-				<div class="text-center " id="timer_mini_view">
+		<div class="row h-100">
+			<div class="col-sm-12 my-auto">
+				<div class="text-center fullscreen" id="timer_mini_view">
 					Test
 				</div>
 			</div>
 		</div>
 
-		<div class="row h-100">
-			<div class="col-sm-12 my-auto">
-				<div class="card card-block w-25">Card</div>
-			</div>
-		</div>
-
-		<div class="align-middle" id="timer_fullscreen"></div>
+		<div
+			class="align-middle"
+			id="timer_fullscreen"
+			class="fullscreen"
+		></div>
 
 		<div>
 			<!-- Timer Modal -->
