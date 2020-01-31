@@ -13,7 +13,7 @@
 
 			.fullscreen {
 				font: 'Monospac82 MT';
-				font-size: 190pt;
+				font-size: 240pt;
 				font-weight: bolder;
 			}
 
@@ -56,9 +56,9 @@
 				var am_pm = hour_in_24hr > 11 ? 'pm' : 'am';
 				minute = checkTime(minute);
 				second = checkTime(second);
-				current_time = hour_in_12hr + ':' + minute + ' ' + am_pm;
-				document.title = current_time;
+				document.title = hour_in_12hr + ':' + minute + ' ' + am_pm;
 				document.getElementById('clock').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
+				document.getElementById('clock_fullscreen').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' <small>' + am_pm + '</small>';
 
 				var t = setTimeout(displayClock, 500);
 			}
@@ -117,6 +117,8 @@
 			/* When the openFullscreen() function is executed, open the video in fullscreen.
 			             Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
 			function openFullscreen() {
+				fullscreen('clock_fullscreen_div');
+
 				var elem = document.getElementById('StopwatchModal');
 
 				if (elem.requestFullscreen) {
@@ -161,10 +163,10 @@
 			document.onkeydown = function keyPress(e) {
 				if (e.key === 'Escape') {
 					document.getElementById('main').style.display = 'block';
+					document.getElementById('clock_fullscreen_div').style.display = 'none';
 					document.getElementById('timer_fullscreen_div').style.display = 'none';
 				}
 			};
-
 		</script>
 	</head>
 
@@ -173,7 +175,7 @@
 			<h3>Clock App</h3>
 			<h1 id="clock">HH:MM:SS</h1>
 
-			<button type="button" class="btn btn-primary" onclick="fullscreen('clock_fullscreen_div')>
+			<button type="button" class="btn btn-primary" onclick="openFullscreen()">
 				Fullscreen
 			</button>
 
