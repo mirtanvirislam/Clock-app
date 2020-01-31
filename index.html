@@ -3,11 +3,7 @@
 		<title>Clock</title>
 
 		<!--Bootstrap CSS and JS-->
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="./resources/bootstrap/css/bootstrap.css"
-		/>
+		<link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.css" />
 
 		<style>
 			body {
@@ -16,7 +12,13 @@
 			}
 
 			.fullscreen {
-				font-size: 72pt;
+				font: 'Monospac82 MT';
+				font-size: 190pt;
+				font-weight: bolder;
+			}
+
+			small {
+				font-size: 80pt;
 			}
 
 			#myauto {
@@ -25,11 +27,7 @@
 			}
 		</style>
 
-		<script
-			src="https://code.jquery.com/jquery-3.3.1.min.js"
-			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			crossorigin="anonymous"
-		></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 		<script src="./resources/bootstrap/js/bootstrap.js"></script>
 
@@ -49,8 +47,7 @@
 				second = checkTime(second);
 				current_time = hour_in_12hr + ':' + minute + ' ' + am_pm;
 				document.title = current_time;
-				document.getElementById('clock').innerHTML =
-					hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
+				document.getElementById('clock').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
 
 				var t = setTimeout(displayClock, 500);
 			}
@@ -92,29 +89,11 @@
 				var seconds = Math.floor(res % 60);
 				//console.log('<br>Difference (Seconds): ' + seconds);
 
-				document.getElementById('timer').innerHTML =
-					hours +
-					' <small>h</small> : ' +
-					minutes +
-					' <small>m</small> : ' +
-					seconds +
-					' <small>s</small>';
+				document.getElementById('timer').innerHTML = hours + ' <small>h</small> : ' + minutes + ' <small>m</small> : ' + seconds + ' <small>s</small>';
 
-				document.getElementById('timer_fullscreen').innerHTML =
-					hours +
-					' <small>h</small> : ' +
-					minutes +
-					' <small>m</small> : ' +
-					seconds +
-					' <small>s</small>';
+				document.getElementById('timer_fullscreen').innerHTML = hours + ' <small>h</small> : ' + minutes + ' <small>m</small> : ' + seconds + ' <small>s</small>';
 
-				document.getElementById('timer_mini_view').innerHTML =
-					hours +
-					' <small>h</small> : ' +
-					minutes +
-					' <small>m</small> : ' +
-					seconds +
-					' <small>s</small>';
+				document.getElementById('timer_mini_view').innerHTML = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
 				//c = diff_minutes(current_time, timer_start_time);
 				//console.log(c);
@@ -170,31 +149,17 @@
 			<h3>Clock App</h3>
 			<h1 id="clock">HH:MM:SS</h1>
 
-			<button
-				type="button"
-				class="btn btn-primary"
-				onclick="openFullscreen()"
-			>
+			<button type="button" class="btn btn-primary" onclick="openFullscreen()">
 				Fullscreen
 			</button>
 
 			<!-- Button trigger modal -->
-			<button
-				type="button"
-				class="btn btn-primary"
-				data-toggle="modal"
-				data-target="#timerModal"
-			>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#timerModal">
 				Timer
 			</button>
 
 			<!-- Button trigger modal -->
-			<button
-				type="button"
-				class="btn btn-primary"
-				data-toggle="modal"
-				data-target="#StopwatchModal"
-			>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#StopwatchModal">
 				Stopwatch
 			</button>
 
@@ -203,70 +168,40 @@
 			<button type="button" class="btn btn-secondary">Settings</button>
 		</div>
 
+		<div id="timer_mini_view"></div>
+
 		<div class="row h-100">
 			<div class="col-sm-12 my-auto">
-				<div class="text-center fullscreen" id="timer_mini_view">
+				<div class="text-center fullscreen" id="timer_fullscreen">
 					Test
 				</div>
 			</div>
 		</div>
 
-		<div
-			class="align-middle"
-			id="timer_fullscreen"
-			class="fullscreen"
-		></div>
-
 		<div>
 			<!-- Timer Modal -->
-			<div
-				class="modal fade"
-				id="timerModal"
-				tabindex="-1"
-				role="dialog"
-				aria-labelledby="exampleModalCenterTitle"
-				aria-hidden="true"
-			>
+			<div class="modal fade" id="timerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5
-								class="modal-title"
-								id="exampleModalCenterTitle"
-							>
+							<h5 class="modal-title" id="exampleModalCenterTitle">
 								Timer
 							</h5>
-							<button
-								type="button"
-								class="btn btn-outline-secondary minimize_timer"
-							>
+							<button type="button" class="btn btn-outline-secondary minimize_timer">
 								_
 							</button>
-							<button
-								type="button"
-								class="btn btn-outline-danger"
-								data-dismiss="modal"
-								aria-label="Close"
-							>
+							<button type="button" class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
-							<h1 id="timer"></h1>
+							<h1 class="modalscreen" id="timer"></h1>
 						</div>
 						<div class="modal-footer">
-							<button
-								type="button"
-								class="btn btn-secondary"
-								data-dismiss="modal"
-							>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
 								Pause/ Play
 							</button>
-							<button
-								type="button"
-								class="btn btn-primary"
-								onClick="startTimer()"
-							>
+							<button type="button" class="btn btn-primary" onClick="startTimer()">
 								Start timer
 							</button>
 						</div>
@@ -275,35 +210,17 @@
 			</div>
 
 			<!-- Modal -->
-			<div
-				class="modal fade"
-				id="StopwatchModal"
-				tabindex="-1"
-				role="dialog"
-				aria-labelledby="exampleModalCenterTitle"
-				aria-hidden="true"
-			>
+			<div class="modal fade" id="StopwatchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5
-								class="modal-title"
-								id="exampleModalCenterTitle"
-							>
+							<h5 class="modal-title" id="exampleModalCenterTitle">
 								Stopwatch
 							</h5>
-							<button
-								type="button"
-								class="btn btn-outline-secondary minimize_timer"
-							>
+							<button type="button" class="btn btn-outline-secondary minimize_timer">
 								_
 							</button>
-							<button
-								type="button"
-								class="btn btn-outline-danger"
-								data-dismiss="modal"
-								aria-label="Close"
-							>
+							<button type="button" class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
@@ -311,11 +228,7 @@
 							<div id="countdown">00:00:00</div>
 						</div>
 						<div class="modal-footer">
-							<button
-								type="button"
-								class="btn btn-secondary"
-								data-dismiss="modal"
-							>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
 								Reset
 							</button>
 							<button type="button" class="btn btn-primary">
