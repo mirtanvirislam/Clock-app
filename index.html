@@ -14,6 +14,15 @@
 				background-color: white;
 				color: black;
 			}
+
+			#timer_fullscreen {
+				font-size: 72pt;
+			}
+
+			#myauto {
+				margin-top: auto;
+				margin-bottom: auto;
+			}
 		</style>
 
 		<script
@@ -90,6 +99,14 @@
 					seconds +
 					' <small>s</small>';
 
+				document.getElementById('timer_fullscreen').innerHTML =
+					hours +
+					' <small>h</small> : ' +
+					minutes +
+					' <small>m</small> : ' +
+					seconds +
+					' <small>s</small>';
+
 				document.getElementById('timer_mini_view').innerHTML =
 					hours +
 					' <small>h</small> : ' +
@@ -148,10 +165,10 @@
 	</head>
 
 	<body onload="displayClock()" class="p-3" id="body">
-		<h3>Clock App</h3>
-		<h1 id="clock">HH:MM:SS</h1>
+		<div id="main">
+			<h3>Clock App</h3>
+			<h1 id="clock">HH:MM:SS</h1>
 
-		<div>
 			<button
 				type="button"
 				class="btn btn-primary"
@@ -185,9 +202,21 @@
 			<button type="button" class="btn btn-secondary">Settings</button>
 
 			<div>
-				<div id="timer_mini_view"></div>
+				<div class="text-center " id="timer_mini_view">
+					Test
+				</div>
 			</div>
+		</div>
 
+		<div class="row h-100">
+			<div class="col-sm-12 my-auto">
+				<div class="card card-block w-25">Card</div>
+			</div>
+		</div>
+
+		<div class="align-middle" id="timer_fullscreen"></div>
+
+		<div>
 			<!-- Timer Modal -->
 			<div
 				class="modal fade"
