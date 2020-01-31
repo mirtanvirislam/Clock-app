@@ -17,7 +17,11 @@
 				font-weight: bolder;
 			}
 
-			#timer_fullscreen {
+			#clock_fullscreen_div {
+				display: none;
+			}
+
+			#timer_fullscreen_div {
 				display: none;
 			}
 
@@ -157,9 +161,15 @@
 			document.onkeydown = function keyPress(e) {
 				if (e.key === 'Escape') {
 					document.getElementById('main').style.display = 'block';
-					document.getElementById('timer_fullscreen').style.display = 'none';
+					document.getElementById('timer_fullscreen_div').style.display = 'none';
 				}
 			};
+
+			function hidefullviews() {
+				alert('h');
+				document.getElementById('clock_fullscreen_div').style.display = 'none';
+				document.getElementById('timer_fullscreen_div').style.display = 'none';
+			}
 		</script>
 	</head>
 
@@ -189,13 +199,22 @@
 			<div id="timer_mini_view"></div>
 		</div>
 
-		<div class="row h-100">
-			<div class="col-sm-12 my-auto">
-				<div class="text-center fullscreen" id="timer_fullscreen">
-					Test
+		<div id="full_views">
+			<div id="clock_fullscreen_div">
+				<div class="row h-100 ">
+					<div class="col-sm-12 my-auto">
+						<div class="text-center fullscreen" id="clock_fullscreen">CF</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row h-100 " id="timer_fullscreen_div">
+				<div class="col-sm-12 my-auto">
+					<div class="text-center fullscreen" id="timer_fullscreen">TF</div>
 				</div>
 			</div>
 		</div>
+
 		<div id="modal_view"></div>
 
 		<div>
@@ -218,7 +237,7 @@
 							<h1 class="modalscreen" id="timer"></h1>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fullscreen(timer_fullscreen)">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fullscreen('timer_fullscreen_div')">
 								Fullscreen
 							</button>
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">
