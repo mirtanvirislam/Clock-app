@@ -17,6 +17,14 @@
 				font-weight: bolder;
 			}
 
+			#timer_fullscreen {
+				display: none;
+			}
+
+			.modalscreen {
+				font-size: 50pt;
+			}
+
 			small {
 				font-size: 80pt;
 			}
@@ -36,7 +44,6 @@
 			var current_time;
 
 			function displayClock() {
-				document.getElementById('main').style.display = 'block';
 				var today = new Date();
 				var hour_in_24hr = today.getHours();
 				var hour_in_12hr = hour_in_24hr % 12;
@@ -89,7 +96,7 @@
 				var seconds = Math.floor(res % 60);
 				//console.log('<br>Difference (Seconds): ' + seconds);
 
-				document.getElementById('timer').innerHTML = hours + ' <small>h</small> : ' + minutes + ' <small>m</small> : ' + seconds + ' <small>s</small>';
+				document.getElementById('timer').innerHTML = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
 				document.getElementById('timer_fullscreen').innerHTML = hours + ' <small>h</small> : ' + minutes + ' <small>m</small> : ' + seconds + ' <small>s</small>';
 
@@ -141,6 +148,18 @@
 				var seconds = res % 60;
 				console.log('<br>Difference (Seconds): ' + seconds);
 			}
+
+			function fullscreen(target) {
+				document.getElementById('main').style.display = 'none';
+				document.getElementById(target).style.display = 'block';
+			}
+
+			document.onkeydown = function keyPress(e) {
+				if (e.key === 'Escape') {
+					document.getElementById('main').style.display = 'block';
+					document.getElementById('timer_fullscreen').style.display = 'none';
+				}
+			};
 		</script>
 	</head>
 
@@ -166,9 +185,9 @@
 			<button type="button" class="btn btn-primary">Lo-fi</button>
 
 			<button type="button" class="btn btn-secondary">Settings</button>
-		</div>
 
-		<div id="timer_mini_view"></div>
+			<div id="timer_mini_view"></div>
+		</div>
 
 		<div class="row h-100">
 			<div class="col-sm-12 my-auto">
@@ -177,6 +196,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="modal_view"></div>
 
 		<div>
 			<!-- Timer Modal -->
@@ -198,6 +218,9 @@
 							<h1 class="modalscreen" id="timer"></h1>
 						</div>
 						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fullscreen(timer_fullscreen)">
+								Fullscreen
+							</button>
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">
 								Pause/ Play
 							</button>
