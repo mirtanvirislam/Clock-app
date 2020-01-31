@@ -25,6 +25,7 @@
 		<script src="./resources/bootstrap/js/bootstrap.js"></script>
 
 		<script>
+			var timer_start_time = -1;
 			function displayClock() {
 				var today = new Date();
 				var hour_in_24hr = today.getHours();
@@ -40,11 +41,51 @@
 
 				var t = setTimeout(displayClock, 500);
 			}
+
 			function checkTime(input) {
 				if (input < 10) {
 					input = '0' + input;
 				} // add zero in front of numbers < 10
 				return input;
+			}
+
+			function startTimer() {
+				console.log('startTimer');
+
+				if (timer_start_time < 0) {
+					console.log('set timer_start_time');
+					timer_start_time = new Date();
+				}
+
+				var current_time = new Date();
+
+				//console.log(current_time + ' ' + timer_start_time);
+
+				var res = Math.abs(current_time - timer_start_time) / 1000;
+
+				// get total days between two dates
+				var days = Math.floor(res / 86400);
+				//console.log('<br>Difference (Days): ' + days);
+
+				// get hours
+				var hours = Math.floor(res / 3600) % 24;
+				//console.log('<br>Difference (Hours): ' + hours);
+
+				// get minutes
+				var minutes = Math.floor(res / 60) % 60;
+				//console.log('<br>Difference (Minutes): ' + minutes);
+
+				// get seconds
+				var seconds = Math.floor(res % 60);
+				//console.log('<br>Difference (Seconds): ' + seconds);
+
+				document.getElementById('timer').innerHTML =
+					hours + ' : ' + minutes + ' : ' + seconds;
+
+				//c = diff_minutes(current_time, timer_start_time);
+				//console.log(c);
+
+				var t2 = setTimeout(startTimer, 500);
 			}
 
 			/* Get the element you want displayed in fullscreen mode (a video in this example): */
@@ -66,6 +107,26 @@
 					/* IE/Edge */
 					elem.msRequestFullscreen();
 				}
+			}
+
+			function diff_minutes(date2, date1) {
+				var res = Math.abs(date1 - date2) / 1000;
+
+				// get total days between two dates
+				var days = Math.floor(res / 86400);
+				console.log('<br>Difference (Days): ' + days);
+
+				// get hours
+				var hours = Math.floor(res / 3600) % 24;
+				console.log('<br>Difference (Hours): ' + hours);
+
+				// get minutes
+				var minutes = Math.floor(res / 60) % 60;
+				console.log('<br>Difference (Minutes): ' + minutes);
+
+				// get seconds
+				var seconds = res % 60;
+				console.log('<br>Difference (Seconds): ' + seconds);
 			}
 		</script>
 	</head>
@@ -89,6 +150,7 @@
 				class="btn btn-primary"
 				data-toggle="modal"
 				data-target="#timerModal"
+				onClick="startTimer()"
 			>
 				Timer
 			</button>
@@ -141,7 +203,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<div id="timer">00:00:00</div>
+							<div id="timer"></div>
 						</div>
 						<div class="modal-footer">
 							<button
@@ -193,7 +255,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<div id="timer">00:00:00</div>
+							<div id="countdown">00:00:00</div>
 						</div>
 						<div class="modal-footer">
 							<button
