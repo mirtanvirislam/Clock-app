@@ -80,7 +80,20 @@
 				//console.log('<br>Difference (Seconds): ' + seconds);
 
 				document.getElementById('timer').innerHTML =
-					hours + ' : ' + minutes + ' : ' + seconds;
+					hours +
+					' <small>h</small> : ' +
+					minutes +
+					' <small>m</small> : ' +
+					seconds +
+					' <small>s</small>';
+
+				document.getElementById('timer_mini_view').innerHTML =
+					hours +
+					' <small>h</small> : ' +
+					minutes +
+					' <small>m</small> : ' +
+					seconds +
+					' <small>s</small>';
 
 				//c = diff_minutes(current_time, timer_start_time);
 				//console.log(c);
@@ -169,6 +182,10 @@
 
 			<button type="button" class="btn btn-secondary">Settings</button>
 
+			<div>
+				<div id="timer_mini_view"></div>
+			</div>
+
 			<!-- Timer Modal -->
 			<div
 				class="modal fade"
@@ -203,7 +220,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<div id="timer"></div>
+							<h1 id="timer"></h1>
 						</div>
 						<div class="modal-footer">
 							<button
