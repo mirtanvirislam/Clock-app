@@ -1,4 +1,5 @@
 var timer_start_time = -1;
+var timer_running = false;
 var current_time;
 var current_time_formatted;
 var timer_time_formatted;
@@ -46,6 +47,7 @@ function checkTime(input) {
 
 function startTimer() {
 	title = 'timer';
+	timer_running = true;
 
 	if (timer_start_time < 0) {
 		console.log('set timer_start_time');
@@ -82,10 +84,14 @@ function startTimer() {
 
 	timer_time_formatted = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
-	var t2 = setTimeout(startTimer, 500);
+	if (timer_running == true) {
+		var t2 = setTimeout(startTimer, 500);
+	}
 }
 
-function pauseTimer() {}
+function pauseTimer() {
+	timer_running = false;
+}
 
 /* Get the element you want displayed in fullscreen mode (a video in this example): */
 
