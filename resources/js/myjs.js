@@ -3,7 +3,7 @@ var timer_running = false;
 var current_time;
 var current_time_formatted;
 var timer_time_formatted;
-var timer_history;
+var timer_history = 0;
 
 var title = 'clock';
 
@@ -59,7 +59,7 @@ function startTimer() {
 
 	//console.log(current_time + ' ' + timer_start_time);
 
-	var res = Math.abs(current_time - timer_start_time) / 1000;
+	var res = Math.abs(current_time - timer_start_time) / 1000 + timer_history;
 
 	// get total days between two dates
 	var days = Math.floor(res / 86400);
@@ -94,10 +94,15 @@ function startTimer() {
 
 function pauseTimer() {
 	timer_running = false;
+	timer_history = current_time.getDateTime() - timer_start_time.DateTime();
+	console.log(timer_history);
 }
 
 function resumeTimer() {
-	timer_start_time = new Date() - timer_history;
+	//timer_start_time = new Date() - timer_history;
+	console.log(timer_start_time);
+	console.log(timer_history);
+
 	startTimer();
 }
 
