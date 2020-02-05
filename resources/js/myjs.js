@@ -1,8 +1,14 @@
 var timer_start_time = -1;
 var current_time;
-var timer_time;
+var current_time_formatted;
+var timer_time_formatted;
 
 var title = 'clock';
+
+function initialize() {
+	displayClock();
+	updateTitle();
+}
 
 function displayClock() {
 	var today = new Date();
@@ -15,21 +21,20 @@ function displayClock() {
 	second = checkTime(second);
 	document.getElementById('clock').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
 	document.getElementById('clock_fullscreen').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' <small>' + am_pm + '</small>';
-}
+	current_time_formatted = hour_in_12hr + ' : ' + minute + ' ' + am_pm;
 
-document.onload = () => updateTitle();
+	var t = setTimeout(displayClock, 500);
+}
 
 function updateTitle() {
 	console.log('Update title');
 
 	if (title == 'clock') {
-		document.title = hour_in_12hr + ' : ' + minute + ' ' + am_pm;
+		document.title = current_time_formatted;
 	} else if (title == 'timer') {
-		console.log(timer_time);
-
-		document.title = timer_time;
+		document.title = timer_time_formatted;
 	}
-	var t = setTimeout(displayClock, 500);
+	var t = setTimeout(updateTitle, 500);
 }
 
 function checkTime(input) {
@@ -75,10 +80,12 @@ function startTimer() {
 
 	document.getElementById('timer_mini_view').innerHTML = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
-	timer_time = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
+	timer_time_formatted = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
 	var t2 = setTimeout(startTimer, 500);
 }
+
+function pauseTimer() {}
 
 /* Get the element you want displayed in fullscreen mode (a video in this example): */
 
