@@ -3,6 +3,7 @@ var timer_running = false;
 var current_time;
 var current_time_formatted;
 var timer_time_formatted;
+var timer_history;
 
 var title = 'clock';
 
@@ -84,13 +85,20 @@ function startTimer() {
 
 	timer_time_formatted = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
-	if (timer_running == true) {
-		var t2 = setTimeout(startTimer, 500);
-	}
+	setTimeout(() => {
+		if (timer_running == true) {
+			startTimer();
+		}
+	}, 500);
 }
 
 function pauseTimer() {
 	timer_running = false;
+}
+
+function resumeTimer() {
+	timer_start_time = new Date() - timer_history;
+	startTimer();
 }
 
 /* Get the element you want displayed in fullscreen mode (a video in this example): */
