@@ -18,8 +18,10 @@ function displayClock() {
 
 	//update Page title
 	if (title == 'clock') {
-		document.title = hour_in_12hr + ':' + minute + ' ' + am_pm;
+		document.title = 'Clock : ' + hour_in_12hr + ':' + minute + ' ' + am_pm;
 	} else if (title == 'timer') {
+		console.log(timer_time);
+
 		document.title = timer_time;
 	}
 
@@ -34,7 +36,7 @@ function checkTime(input) {
 }
 
 function startTimer() {
-	console.log('startTimer');
+	title = 'timer';
 
 	if (timer_start_time < 0) {
 		console.log('set timer_start_time');
@@ -69,7 +71,7 @@ function startTimer() {
 
 	document.getElementById('timer_mini_view').innerHTML = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
-	var timer_time = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
+	timer_time = 'Timer - ' + hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
 	//c = diff_minutes(current_time, timer_start_time);
 	//console.log(c);
