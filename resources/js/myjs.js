@@ -1,5 +1,8 @@
 var timer_start_time = -1;
 var current_time;
+var timer_time;
+
+var title = 'clock';
 
 function displayClock() {
 	var today = new Date();
@@ -10,9 +13,15 @@ function displayClock() {
 	var am_pm = hour_in_24hr > 11 ? 'pm' : 'am';
 	minute = checkTime(minute);
 	second = checkTime(second);
-	document.title = hour_in_12hr + ':' + minute + ' ' + am_pm;
 	document.getElementById('clock').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
 	document.getElementById('clock_fullscreen').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' <small>' + am_pm + '</small>';
+
+	//update Page title
+	if (title == 'clock') {
+		document.title = hour_in_12hr + ':' + minute + ' ' + am_pm;
+	} else if (title == 'timer') {
+		document.title = timer_time;
+	}
 
 	var t = setTimeout(displayClock, 500);
 }
@@ -59,6 +68,8 @@ function startTimer() {
 	document.getElementById('timer_fullscreen').innerHTML = hours + ' <small>h</small> : ' + minutes + ' <small>m</small> : ' + seconds + ' <small>s</small>';
 
 	document.getElementById('timer_mini_view').innerHTML = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
+
+	var timer_time = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
 	//c = diff_minutes(current_time, timer_start_time);
 	//console.log(c);
