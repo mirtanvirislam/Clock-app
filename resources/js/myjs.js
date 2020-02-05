@@ -15,16 +15,20 @@ function displayClock() {
 	second = checkTime(second);
 	document.getElementById('clock').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' ' + am_pm;
 	document.getElementById('clock_fullscreen').innerHTML = hour_in_12hr + ':' + minute + ':' + second + ' <small>' + am_pm + '</small>';
+}
 
-	//update Page title
+document.onload = () => updateTitle();
+
+function updateTitle() {
+	console.log('Update title');
+
 	if (title == 'clock') {
-		document.title = 'Clock : ' + hour_in_12hr + ':' + minute + ' ' + am_pm;
+		document.title = hour_in_12hr + ' : ' + minute + ' ' + am_pm;
 	} else if (title == 'timer') {
 		console.log(timer_time);
 
 		document.title = timer_time;
 	}
-
 	var t = setTimeout(displayClock, 500);
 }
 
@@ -71,10 +75,7 @@ function startTimer() {
 
 	document.getElementById('timer_mini_view').innerHTML = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
-	timer_time = 'Timer - ' + hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
-
-	//c = diff_minutes(current_time, timer_start_time);
-	//console.log(c);
+	timer_time = hours + ' h : ' + minutes + ' m : ' + seconds + ' s';
 
 	var t2 = setTimeout(startTimer, 500);
 }
