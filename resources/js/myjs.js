@@ -152,6 +152,20 @@ function diff_minutes(date2, date1) {
 function fullscreen(target) {
 	document.getElementById('main').style.display = 'none';
 	document.getElementById(target).style.display = 'block';
+	var elem = document.getElementById('StopwatchModal');
+
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.mozRequestFullScreen) {
+		/* Firefox */
+		elem.mozRequestFullScreen();
+	} else if (elem.webkitRequestFullscreen) {
+		/* Chrome, Safari and Opera */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) {
+		/* IE/Edge */
+		elem.msRequestFullscreen();
+	}
 }
 
 document.onkeydown = function keyPress(e) {
