@@ -1,31 +1,11 @@
 body {
 	background-color: black;
-	color: grey;
+	color: white;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .fullscreen {
 	font: 'Monospac82 MT';
 	font-size: 200pt;
 	font-weight: bolder;
-}
-
-#clock_fullscreen_div {
-	display: none;
-}
-
-#timer_fullscreen_div {
-	display: none;
-}
-
-.modalscreen {
-	font-size: 50pt;
-}
-
-small {
-	font-size: 80pt;
-}
-
-#myauto {
-	margin-top: auto;
-	margin-bottom: auto;
 }

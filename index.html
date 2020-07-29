@@ -7,120 +7,15 @@
 		<link rel="stylesheet" type="text/css" href="./resources/css/mycss.css" />
 
 		<!--JS-->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+		<script src="./resources/jquery-3.3.1.min.js"></script>
 		<script src="./resources/bootstrap/js/bootstrap.js"></script>
 		<script src="./resources/js/myjs.js"></script>
 	</head>
 
-	<body onload="initialize()" class="p-3" id="body">
-		<div id="main">
-			<h3>Clock App</h3>
-			<h1 id="clock">HH:MM:SS</h1>
 
-			<button type="button" class="btn btn-primary" onclick="openFullscreen()">
-				Fullscreen
-			</button>
-
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#timerModal">
-				Timer
-			</button>
-
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#StopwatchModal">
-				Stopwatch
-			</button>
-
-			<button type="button" class="btn btn-primary">Lo-fi</button>
-
-			<button type="button" class="btn btn-secondary">Settings</button>
-
-			<div id="timer_mini_view"></div>
-		</div>
-
-		<div id="full_views">
-			<div id="clock_fullscreen_div">
-				<div class="row h-100 ">
-					<div class="col-sm-12 my-auto">
-						<div class="text-center fullscreen" id="clock_fullscreen"></div>
-					</div>
-				</div>
-			</div>
-
-			<div id="timer_fullscreen_div">
-				<div class="row h-100 ">
-					<div class="col-sm-12 my-auto">
-						<div class="text-center fullscreen" id="timer_fullscreen"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="modal_view"></div>
-
-		<div>
-			<!-- Timer Modal -->
-			<div class="modal fade" id="timerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalCenterTitle">
-								Timer
-							</h5>
-							<button type="button" class="btn btn-outline-secondary minimize_timer">
-								_
-							</button>
-							<button type="button" class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<h1 class="modalscreen" id="timer">0 h : 0 m : 0 s</h1>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fullscreen('timer_fullscreen_div')">
-								Fullscreen
-							</button>
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">
-								Pause/ Play
-							</button>
-							<button type="button" class="btn btn-primary" onClick="startTimer()">
-								Start timer
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="StopwatchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalCenterTitle">
-								Stopwatch
-							</h5>
-							<button type="button" class="btn btn-outline-secondary minimize_timer">
-								_
-							</button>
-							<button type="button" class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div id="countdown">00:00:00</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">
-								Reset
-							</button>
-							<button type="button" class="btn btn-primary">
-								Start
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<body class="p-3" id="body">
+		<h1>Clock App</h1>
 	</body>
+
 </html>
