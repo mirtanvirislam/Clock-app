@@ -27,3 +27,20 @@
 // console.log(c1);
 // console.log(c1.getDisplay());
 // console.log(c2.getDisplay());
+
+
+function Clock() {
+
+}
+
+Clock.prototype.display = function() {
+    const current_time = new Date();
+    hour = current_time.getHours() % 12;
+    minute = current_time.getMinutes();
+    second = current_time.getSeconds();
+    am_pm = hour > 11 ? 'pm' : 'am';
+    return hour + ':' + minute + ':' + second + ' ' + am_pm;
+}
+
+clock = new Clock();
+console.log(clock.display());
