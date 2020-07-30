@@ -62,6 +62,21 @@ Timer.prototype.start = function() {
     }
 }
 
+Timer.prototype.pause = function() {
+    if(this.active == true) {
+        const current_time = new Date();
+        this.history += ((current_time.getTime() - this.start_time.getTime()) / 1000);
+        this.active = false;
+    }
+}
+
+Timer.prototype.stop = function() {
+    this.active = false;
+    this.start_time = null;
+    this.history = 0;
+    document.title = 'Clock';
+}
+
 Timer.prototype.display = function() {
     var diff = this.history;
     if(this.active == true) {
@@ -83,13 +98,6 @@ Timer.prototype.display = function() {
     }
 }
 
-Timer.prototype.pause = function() {
-    if(this.active == true) {
-        const current_time = new Date();
-        this.history += ((current_time.getTime() - this.start_time.getTime()) / 1000);
-        this.active = false;
-    }
-}
 
 function fullscreen(element_id) {
     var elem = document.getElementById(element_id);
@@ -105,6 +113,7 @@ function fullscreen(element_id) {
     }
 }
 
+
 function toggleFullscreen() {
     var element = document.body;
   
@@ -115,6 +124,7 @@ function toggleFullscreen() {
   
     isFullscreen ? document.cancelFullScreen() : element.requestFullScreen();
   }
+
 
 document.addEventListener('keypress', logKey);
 
@@ -136,7 +146,6 @@ function logKey(e) {
 
 window.onbeforeunload = function (e) {
     e = e || window.event;
-
     // For IE and Firefox prior to version 4
     if (e) {
         e.returnValue = 'Sure?';
