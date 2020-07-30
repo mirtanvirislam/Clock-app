@@ -21,10 +21,11 @@ function show(div_id) {
     document.getElementById('countdown').style.visibility = 'hidden';
     document.getElementById('timer').style.visibility = 'hidden';
     elements = document.getElementsByClassName('nav-item'); 
-    Array.prototype.forEach.call(elements, element => element.style.opacity = 0.5  )
+    Array.prototype.forEach.call(elements, element => element.style.opacity = 0.5)
 
     document.getElementById('btn-'+div_id).style.opacity = 1;
     document.getElementById(div_id).style.visibility = 'visible';
+
 }
 
 function Clock() {

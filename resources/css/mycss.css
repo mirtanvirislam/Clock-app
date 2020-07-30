@@ -69,6 +69,10 @@ h5 {
 	border-color:  grey;
 }
 
+.ri-2x, .ri-3x, .ri-4x {
+	cursor: pointer;
+}
+
 .no-border {
 	border: 0;
 }
