@@ -44,14 +44,16 @@ Clock.prototype.display = function() {
 
 
 function Timer() {
+    this.active = false;
     this.start_time = null;
     this.history = 30;
-    this.active = False;
 }
 
 Timer.prototype.start = function() {
-    this.start_time = new Date();
-    this.active = True;
+    if(this.active == false) {
+        this.active = true;
+        this.start_time = new Date();
+    }
 }
 
 Timer.prototype.active = function() {
@@ -59,13 +61,11 @@ Timer.prototype.active = function() {
 }
 
 Timer.prototype.display = function() {
-    const current_time = new Date();
-    if(this.active == True) {
-        start_time = this.start_time;
-    } else {
-        start_time = new Date();
+    var diff = this.history;
+    if(this.active == true) {
+        const current_time = new Date();
+        diff += ((current_time.getTime() - this.start_time.getTime()) / 1000)
     }
-    var diff = ((current_time.getTime() - start_time.getTime()) / 1000) + this.history;
     var diff_hour = Math.floor(diff / 3600);
     diff = diff % 3600;
     var diff_minute = Math.floor(diff / 60);
@@ -83,15 +83,11 @@ Timer.prototype.display = function() {
 }
 
 Timer.prototype.pause = function() {
-    const current_time = new Date();
-    if(this.start_time != null) {
-        start_time = this.start_time;
-    } else {
-        start_time = new Date();
+    if(this.active == true) {
+        const current_time = new Date();
+        this.history += ((current_time.getTime() - this.start_time.getTime()) / 1000);
+        this.active = false;
     }
-    var diff = ((current_time.getTime() - start_time.getTime()) / 1000);
-    this.history += diff;
-    this.start_time = null;
 }
 
 
