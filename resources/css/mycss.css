@@ -1,6 +1,12 @@
+@font-face {
+	font-family: Major;
+	src: url(./../font/MajorMonoDisplay-Regular.ttf);
+  }
+
 body {
 	background-color: black;
 	color: white;
+	font-family: Major;
 	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 	-webkit-user-select: none;   
 	-moz-user-select: none;
@@ -31,13 +37,12 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-	font: 'Trebuchet MS';
-	font-weight: bolder;
 	display: inline;
 }
 
 h1 {
 	font-size: 26em;
+	letter-spacing: -4.5rem;
 }
 
 h2 {
@@ -49,14 +54,19 @@ h3 {
 }
 
 h5 {
-	font-size: 1em;
+	font-size: 3em;
+}
+
+#clock, #countdown, #timer {
+	position: absolute;
+	width: 100rem;
+	text-align: center;
 }
 
 .nav-item {
-	font: 'Monospac82 MT';
 	font-weight: 500;
 	display: inline;
-	font-size: 23px;
+	font-size: 1.5em;
 }
 
 .btn {
@@ -71,6 +81,8 @@ h5 {
 
 .ri-2x, .ri-3x, .ri-4x {
 	cursor: pointer;
+	color: rgba(255, 255, 255, 0.6);
+	text-shadow: 0 0 0px rgba(255, 255, 255, 0.0);
 }
 
 .no-border {

@@ -17,7 +17,7 @@ function eventloop() {
         document.title = timer.display();
     }
 
-    setTimeout(eventloop, 500);
+    setTimeout(eventloop, 400);
 }
 
 function show(div_id) {
@@ -25,7 +25,7 @@ function show(div_id) {
     document.getElementById('countdown').style.visibility = 'hidden';
     document.getElementById('timer').style.visibility = 'hidden';
     elements = document.getElementsByClassName('nav-item'); 
-    Array.prototype.forEach.call(elements, element => element.style.opacity = 0.5)
+    Array.prototype.forEach.call(elements, element => element.style.opacity = 0.4)
 
     document.getElementById('btn-'+div_id).style.opacity = 1;
     document.getElementById(div_id).style.visibility = 'visible';
@@ -144,12 +144,12 @@ function logKey(e) {
 }
 
 
-window.onbeforeunload = function (e) {
-    e = e || window.event;
-    // For IE and Firefox prior to version 4
-    if (e) {
-        e.returnValue = 'Sure?';
-    }
-    // For Safari
-    return 'Sure?';
-};
+// window.onbeforeunload = function (e) {
+//     e = e || window.event;
+//     // For IE and Firefox prior to version 4
+//     if (e) {
+//         e.returnValue = 'Sure?';
+//     }
+//     // For Safari
+//     return 'Sure?';
+// };
