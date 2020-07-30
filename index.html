@@ -13,25 +13,40 @@
 	</head>
 
 
-	<body class="p-3" id="body">
+	<body class="p-3" id="body" onload="initialize()">
 
 		<!--Navbar-->
 		<div class="container">
 			<div class="row">
-				<a class="col-sm m-2 btn btn-primary">
+				<a class="col-sm m-2 btn btn-primary nav-item" class="" id="btn-clock" onclick="show('clock')">
 				Clock
 				</a>
-			  <a class="col-sm m-2 btn btn-outline-primary">
+			  <a class="col-sm m-2 btn btn-primary nav-item" id="btn-countdown" onclick="show('countdown')">
 				Countdown
 			  </a>
-			  <a class="col-sm m-2 btn btn-outline-primary">
+			  <a class="col-sm m-2 btn btn-primary nav-item" id="btn-timer" onclick="show('timer')">
 				Timer
 			  </a>
 			</div>
 		</div>
 
 		<div class="center" id="clock">
-			<h1>Clock</h1>
+			<div class="h1" id="clock-value">Clock</div>
+			<div class="btn btn-primary">Fullscreen</div>
+		</div>
+
+		<div class="center" id="countdown">
+			<div class="h1" id="countdown-value">Countdown</div>
+			Countdown feature not available yet.
+			<!-- <div id="countdown-value">Countdown</div>
+			<div class="btn btn-primary">Fullscreen</div> -->
+		</div>
+
+		<div class="center" id="timer">
+			<div  class="h1" id="timer-value">Timer</div>
+			<div class="btn btn-primary" onclick="timer.start()">Start</div>
+			<div class="btn btn-primary" onclick="timer.pause()">Pause</div>
+			<div class="btn btn-primary">Fullscreen</div>
 		</div>
 		
 	</body>

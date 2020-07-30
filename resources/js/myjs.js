@@ -1,33 +1,28 @@
+function initialize() {
+    show('timer');
 
-// const book1 = {
-//     title: 'Book One',
-//     getDisplay : function() {
-//         return `This book's title is ${this.title}`
-//     }
-// }
+    clock = new Clock();
+    timer = new Timer();
+    eventloop();
+}
 
-// console.log(book1.getDisplay())
-// console.log(book1)
-// console.log(Object.keys(book1))
-// console.log(Object.values(book1))
+function eventloop() {
+    document.getElementById('clock-value').innerHTML = clock.display();
+    document.getElementById('timer-value').innerHTML = timer.display();
 
-// function Human(name, age, sex) {
-//     this.name = name;
-//     this.age = age;
-//     this.sex = sex;
-// }
+    setTimeout(eventloop, 500);
+}
 
-// Human.prototype.getDisplay =  function() {
-//     return `This human's name is ${this.name}`;
-// }
+function show(div_id) {
+    document.getElementById('clock').style.visibility = 'hidden';
+    document.getElementById('countdown').style.visibility = 'hidden';
+    document.getElementById('timer').style.visibility = 'hidden';
+    elements = document.getElementsByClassName('nav-item'); 
+    Array.prototype.forEach.call(elements, element => element.style.opacity = 0.5  )
 
-// const c1 = new Human('Carl', 7, 'M');
-// const c2 = new Human('Vanessa', 14, 'F');
-
-// console.log(c1);
-// console.log(c1.getDisplay());
-// console.log(c2.getDisplay());
-
+    document.getElementById('btn-'+div_id).style.opacity = 1;
+    document.getElementById(div_id).style.visibility = 'visible';
+}
 
 function Clock() {
 
@@ -38,6 +33,8 @@ Clock.prototype.display = function() {
     hour = current_time.getHours() % 12;
     minute = current_time.getMinutes();
     second = current_time.getSeconds();
+    if (minute < 10) {minute = "0" + minute;}
+    if (second < 10) {second = "0" + second;}
     am_pm = hour > 11 ? 'pm' : 'am';
     return hour + ':' + minute + ':' + second + ' ' + am_pm;
 }
@@ -46,7 +43,7 @@ Clock.prototype.display = function() {
 function Timer() {
     this.active = false;
     this.start_time = null;
-    this.history = 30;
+    this.history = 0;
 }
 
 Timer.prototype.start = function() {
@@ -90,10 +87,3 @@ Timer.prototype.pause = function() {
     }
 }
 
-
-clock = new Clock();
-console.log(clock.display());
-
-timer = new Timer();
-timer.start();
-console.log(timer.display());
