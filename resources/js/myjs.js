@@ -1,5 +1,9 @@
 function initialize() {
-    show('clock');
+    page = window.localStorage.getItem('page');
+    if(page == null) {
+        page = 'timer';
+    }
+    show(page);
 
     clock = new Clock();
     timer = new Timer();
@@ -26,6 +30,7 @@ function show(div_id) {
     document.getElementById('btn-'+div_id).style.opacity = 1;
     document.getElementById(div_id).style.visibility = 'visible';
 
+    window.localStorage.setItem('page', div_id);
 }
 
 function Clock() {
