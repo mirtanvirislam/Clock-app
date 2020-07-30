@@ -73,18 +73,21 @@ h5 {
 
 .btn {
 	background: black;
-	border-color: black;
+	border: 2px solid black;
+	border-radius: 0%;
+	transition: all .30s ease-in-out;
 }
 
 .btn:hover {
 	background-color: black;
-	border-color:  grey;
+	border: 2px solid white;
 }
 
 .ri-2x, .ri-3x, .ri-4x {
 	cursor: pointer;
 	color: rgba(255, 255, 255, 0.3);
 	text-shadow: 0 0 0px rgba(255, 255, 255, 0.0);
+	transition: all .2s ease-in-out;
 }
 
 
