@@ -1,5 +1,5 @@
 function initialize() {
-    show('timer');
+    show('clock');
 
     clock = new Clock();
     timer = new Timer();
@@ -9,6 +9,9 @@ function initialize() {
 function eventloop() {
     document.getElementById('clock-value').innerHTML = clock.display();
     document.getElementById('timer-value').innerHTML = timer.display();
+    if(timer.active == true) {
+        document.title = timer.display();
+    }
 
     setTimeout(eventloop, 500);
 }
@@ -35,8 +38,8 @@ Clock.prototype.display = function() {
     second = current_time.getSeconds();
     if (minute < 10) {minute = "0" + minute;}
     if (second < 10) {second = "0" + second;}
-    am_pm = hour > 11 ? 'pm' : 'am';
-    return hour + ':' + minute + ':' + second + ' ' + am_pm;
+    am_pm = hour > 11 ? 'PM' : 'AM';
+    return '<h1>' + hour + ':' + minute + '</h1> <h3>' + second + '</h3> <h5>' + am_pm + '</h5>';
 }
 
 
@@ -53,10 +56,6 @@ Timer.prototype.start = function() {
     }
 }
 
-Timer.prototype.active = function() {
-    return this.active;
-}
-
 Timer.prototype.display = function() {
     var diff = this.history;
     if(this.active == true) {
@@ -68,14 +67,13 @@ Timer.prototype.display = function() {
     var diff_minute = Math.floor(diff / 60);
     var diff_second = Math.floor(diff % 60);
 
-    if (diff_hour < 10) {diff_hour = "0" + diff_hour;}
     if (diff_minute < 10) {diff_minute = "0" + diff_minute;}
     if (diff_second < 10) {diff_second = "0" + diff_second;}
     if (diff_hour > 0) {
-        return diff_hour + ':' + diff_minute + ':' + diff_second;
+        return  diff_hour + 'h :' + diff_minute + 'm : ' + diff_second + 's';
     }
     else {
-        return diff_minute + ':' + diff_second;
+        return diff_minute + 'm : ' + diff_second + 's';
     }
 }
 
