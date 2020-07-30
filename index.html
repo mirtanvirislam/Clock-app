@@ -5,9 +5,10 @@
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="./resources/css/mycss.css" />
+		<link rel="stylesheet" type="text/css" href="./resources/icons/remixicon.css" />
 
 		<!--JS-->
- 		<script src="./resources/jquery-3.3.1.min.js"></script>
+ 		<script src="./resources/js/jquery-3.3.1.min.js"></script>
 		<script src="./resources/bootstrap/js/bootstrap.js"></script>
 		<script src="./resources/js/myjs.js"></script>
 	</head>
@@ -28,7 +29,7 @@
 				Timer
 			  </a>
 			</div>
-			<div class="btn btn-secondary" id="fullscreen" onclick="fullscreen('body')">Fullscreen</div>
+			<i class="ri-fullscreen-line ri-2x px-2" id="fullscreen" onclick="toggleFullscreen()"></i>
 		</div>
 
 		<div class="center" id="clock">
@@ -43,8 +44,9 @@
 		<div class="center" id="timer">
 			<h1><div id="timer-value"></div></h1>
 			<div class="center-x py-5">
-				<div class="btn btn-secondary m-2" onclick="timer.start()">Start</div>
-				<div class="btn btn-secondary m-2" onclick="timer.pause()">Pause</div>
+				<i class="ri-play-circle-line ri-4x px-2" onclick="timer.start()"></i>
+				<i class="ri-pause-circle-line ri-4x px-2" onclick="timer.pause()"></i>
+				<i class="ri-stop-circle-line ri-4x px-2" onclick="timer.stop()"></i>
 			</div>
 		</div>
 		

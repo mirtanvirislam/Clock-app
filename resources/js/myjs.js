@@ -99,3 +99,30 @@ function fullscreen(element_id) {
     }
 }
 
+function toggleFullscreen() {
+    var element = document.body;
+  
+    var isFullscreen = document.webkitIsFullScreen || document.mozFullScreen || false;
+  
+    element.requestFullScreen = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || function () { return false; };
+    document.cancelFullScreen = document.cancelFullScreen || document.webkitCancelFullScreen || document.mozCancelFullScreen || function () { return false; };
+  
+    isFullscreen ? document.cancelFullScreen() : element.requestFullScreen();
+  }
+
+document.addEventListener('keypress', logKey);
+
+function logKey(e) {
+    switch(e.code) {
+        case 'KeyF':
+            toggleFullscreen();
+            break;
+        case 'Space':
+            if(timer.active == true) {
+                timer.pause()
+            } else {
+                timer.start()
+            }
+            break;
+    }
+}

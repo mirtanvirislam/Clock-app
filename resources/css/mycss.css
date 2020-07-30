@@ -31,7 +31,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-	font: 'Monospac82 MT';
+	font: 'Trebuchet MS';
 	font-weight: bolder;
 	display: inline;
 }
@@ -52,6 +52,13 @@ h5 {
 	font-size: 1em;
 }
 
+.nav-item {
+	font: 'Monospac82 MT';
+	font-weight: 500;
+	display: inline;
+	font-size: 23px;
+}
+
 .btn {
 	background: black;
 	border-color: black;
@@ -60,6 +67,14 @@ h5 {
 .btn:hover {
 	background-color: black;
 	border-color:  grey;
+}
+
+.no-border {
+	border: 0;
+}
+
+.no-border:hover {
+	border: 0;
 }
 
 #fullscreen {
