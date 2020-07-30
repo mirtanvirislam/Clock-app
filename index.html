@@ -18,13 +18,13 @@
 		<!--Navbar-->
 		<div class="container">
 			<div class="row">
-				<a class="col-sm m-2 btn btn-primary nav-item" class="" id="btn-clock" onclick="show('clock')">
+				<a class="col-sm m-2 btn btn-secondary nav-item" class="" id="btn-clock" onclick="show('clock')">
 				Clock
 				</a>
-			  <a class="col-sm m-2 btn btn-primary nav-item" id="btn-countdown" onclick="show('countdown')">
+			  <a class="col-sm m-2 btn btn-secondary nav-item" id="btn-countdown" onclick="show('countdown')">
 				Countdown
 			  </a>
-			  <a class="col-sm m-2 btn btn-primary nav-item" id="btn-timer" onclick="show('timer')">
+			  <a class="col-sm m-2 btn btn-secondary nav-item" id="btn-timer" onclick="show('timer')">
 				Timer
 			  </a>
 			</div>
@@ -35,16 +35,16 @@
 			<!-- <div class="btn btn-outline-primary m-2">Fullscreen</div> -->
 		</div>
 
-		<div class="center" id="countdown">
+		<div class="center" id="countdown" style="visibility: hidden;">
 			<h3><div id="countdown-value">Countdown</div></h3>
 			Countdown feature not available yet.
 		</div>
 
 		<div class="center" id="timer">
-			<h1><div id="timer-value">Timer</div></h1>
-			<div class="center-x">
-				<div class="btn btn-primary m-2" onclick="timer.start()">Start</div>
-				<div class="btn btn-primary m-2" onclick="timer.pause()">Pause</div>
+			<h1><div id="timer-value"></div></h1>
+			<div class="center-x py-5">
+				<div class="btn btn-secondary m-2" onclick="timer.start()">Start</div>
+				<div class="btn btn-secondary m-2" onclick="timer.pause()">Pause</div>
 			</div>
 		</div>
 		
