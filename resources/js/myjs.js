@@ -38,7 +38,7 @@ Clock.prototype.display = function() {
     second = current_time.getSeconds();
     if (minute < 10) {minute = "0" + minute;}
     if (second < 10) {second = "0" + second;}
-    am_pm = hour > 11 ? 'PM' : 'AM';
+    am_pm = current_time.getHours() > 11 ? 'PM' : 'AM';
     return '<h1>' + hour + ':' + minute + '</h1> <h3>' + second + '</h3> <h5>' + am_pm + '</h5>';
 }
 
@@ -70,10 +70,10 @@ Timer.prototype.display = function() {
     if (diff_minute < 10) {diff_minute = "0" + diff_minute;}
     if (diff_second < 10) {diff_second = "0" + diff_second;}
     if (diff_hour > 0) {
-        return  diff_hour + 'h :' + diff_minute + 'm : ' + diff_second + 's';
+        return  diff_hour + ':' + diff_minute + ':' + diff_second;
     }
     else {
-        return diff_minute + 'm : ' + diff_second + 's';
+        return diff_minute + ':' + diff_second;
     }
 }
 
