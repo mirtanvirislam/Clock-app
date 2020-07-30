@@ -17,7 +17,7 @@ function eventloop() {
         document.title = timer.display();
     }
 
-    setTimeout(eventloop, 400);
+    setTimeout(eventloop, 500);
 }
 
 function show(div_id) {
@@ -42,6 +42,7 @@ Clock.prototype.display = function() {
     hour = current_time.getHours() % 12;
     minute = current_time.getMinutes();
     second = current_time.getSeconds();
+    if (hour == 0) {hour = 12}
     if (minute < 10) {minute = "0" + minute;}
     if (second < 10) {second = "0" + second;}
     am_pm = current_time.getHours() > 11 ? 'PM' : 'AM';
