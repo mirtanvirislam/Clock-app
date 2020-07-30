@@ -85,3 +85,17 @@ Timer.prototype.pause = function() {
     }
 }
 
+function fullscreen(element_id) {
+    var elem = document.getElementById(element_id);
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+    }
+}
+
