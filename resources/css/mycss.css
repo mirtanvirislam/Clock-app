@@ -12,6 +12,8 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 .fullscreen {
@@ -81,8 +83,13 @@ h5 {
 
 .ri-2x, .ri-3x, .ri-4x {
 	cursor: pointer;
-	color: rgba(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255, 0.3);
 	text-shadow: 0 0 0px rgba(255, 255, 255, 0.0);
+}
+
+
+.ri-2x:hover, .ri-3x:hover, .ri-4x:hover {
+	color: rgba(255, 255, 255, 1);
 }
 
 .no-border {
