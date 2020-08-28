@@ -103,6 +103,10 @@ h5 {
 	border: 0;
 }
 
+#timer-value{
+	padding-right: 4.5rem;
+}
+
 #fullscreen {
 	position: absolute;
 	top:0;
